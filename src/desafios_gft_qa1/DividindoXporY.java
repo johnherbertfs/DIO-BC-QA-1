@@ -30,7 +30,6 @@ public class DividindoXporY {
 			}
 		}
 		System.out.println("FIM!!!");
-
 	}
 
 }
