@@ -20,7 +20,7 @@ public class DividindoXporY {
 			System.out.println("digite o segundo número:  ");
 			num2 = scan.nextInt();
 			
-			if(num2 <= 0) {
+			if(num2 == 0) {
 				System.out.println("divisão impossível!");
 			}
 			else {
