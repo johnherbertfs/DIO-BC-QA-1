@@ -21,10 +21,32 @@ Scanner scan = new Scanner(System.in);
 			System.out.println("digite o segundo número:  ");
 			num2 = scan.nextLine();
 			
-			int tamanhoNum2 = num2.length();
-			int j = tamanhoNum2 - 1;
+			int tamanhoNum1 = num1.length() - 1;
+			int tamanhoNum2 = num2.length() - 1;
+			//tamanhoNum2 -= 1;
 			
-			for(; ; --j) {
+			while(true) {
+				if(tamanhoNum1 < 0) {
+					teste = "encaixa";
+					break;
+				}
+				if(num1.charAt(tamanhoNum1) == num2.charAt(tamanhoNum2)) {
+					//teste = "encaixa";
+					tamanhoNum1--;
+					tamanhoNum2--;
+					if(tamanhoNum2 < 0) {
+						//teste = "encaixa";
+						break;
+					} else {
+						continue;
+					}
+				}else {
+					teste = "nao encaixa";
+					break;
+				}
+			}
+			
+			/*for(; ; --j) {
 				if(num1.charAt(j) == num2.charAt(j)) {
 					teste = "encaixa";
 					continue;
@@ -33,7 +55,8 @@ Scanner scan = new Scanner(System.in);
 					teste = "nao encaixa";
 					break;
 				}
-			}
+			}*/
+			
 			if(teste.equalsIgnoreCase("encaixa")) {
 				System.out.println(teste);
 			}
