@@ -13,14 +13,12 @@ public class SaoMultiplos {
 		System.out.println("digite o segundo numero:  ");
 		int n2 = scan.nextInt();
 		
-		int temp = n2%n1; 
-		
 		if((n2%n1) == 0 || (n1%n2) == 0) {
             System.out.println("Sao Multiplos");
         } else {
             System.out.println("Nao sao Multiplos");
         }
-
+		scan.close();
 	}
 
 }
