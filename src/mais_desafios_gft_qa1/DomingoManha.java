@@ -8,26 +8,27 @@ public class DomingoManha {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		//System.out.println("digite uma hora:  ");
-		//String horario[] = scan.nextLine().split(":");
-		
-		//System.out.println("hora digitada:  hora " + horario[0] + ", minuto " + horario[1]);
-		
-		while(true) {
+		while(scan.hasNext()) {  // enquanto houver dados na entrada
+			//System.out.println("digite uma hora:  ");
 			String horario[] = scan.nextLine().split(":");
-			switch(horario[0]) {
+			int hora = Integer.parseInt(horario[0]);
+			int min = Integer.parseInt(horario[1]);
+			
+			if(hora < 7) {
+				System.out.println("Atraso maximo: 0");
+			}
+			else {
+				System.out.println("Atraso maximo: " + (60 * (hora - 7) + min));
+			}
+			
+			/*switch(horario[0]) {
 			case("7"): System.out.println("Atraso maximo: " + horario[1]); break;
 			case("8"): System.out.println("Atraso maximo: " + horario[1]); break;
 			case("9"): System.out.println("Atraso maximo: " + horario[1]); break;
 			default:  System.out.println("Atraso maximo: 0");
-			}
-			scan.close();
+			}*/
 		}
-		
-
-		
-
-
+		scan.close();
 	}
 
 }
