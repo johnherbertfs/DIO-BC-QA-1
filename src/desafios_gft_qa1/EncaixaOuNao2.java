@@ -2,22 +2,18 @@ package desafios_gft_qa1;
 
 import java.util.Scanner;
 
-public class EncaixaOuNao1 {
+public class EncaixaOuNao2 {
 
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
-		System.out.println("digite o número de interações:  ");
 		int iteracoes = scan.nextInt(); scan.nextLine();
 		
 		String n1;
 		String n2;
 		
 		for(int i = 0; i < iteracoes; i++) {
-			System.out.println();
-			System.out.println("digite o primeiro número:  ");
 			n1 = scan.nextLine();
-			System.out.println("digite o segundo número:  ");
 			n2 = scan.nextLine();
 			
 			int tamanhoN1 = n1.length();
