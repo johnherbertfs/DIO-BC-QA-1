@@ -1,34 +1,53 @@
 package desafio_banco_digital;
 
+import java.util.ArrayList;
+
 public abstract class Conta {
 	
-	protected long numero;
+	protected Long numero;
 	protected Agencia agencia;
-	protected Pessoa cliente;
+	protected Pessoa pessoa;
 	protected double saldo;
 	protected String estadoAtivacao;
-	protected long PREFIXO = 002;
+	protected Long PREFIXO = (long) 002;
 	private static long contadorConta = 1000;
+	protected ArrayList<String> movimentacoes;
 	
 	
-	public Conta(Agencia agencia, Pessoa cliente) {
-		this.numero = contadorConta + 1;
+	
+	public Conta(Agencia agencia, Pessoa pessoa) {
+		this.numero = contadorConta++;
 		this.agencia = agencia;
-		this.cliente = cliente;
+		this.pessoa = pessoa;
 		this.saldo = 0.0;
+		this.movimentacoes = new ArrayList<String>();
+		this.movimentacoes.add("Conta criada.  Saldo:  0.0"); //futuro colocar data
 	}
 
 	
+	
+	public Agencia getAgencia() {
+		return agencia;
+	}
+
 	public String verificaAtivacao() {
 		return estadoAtivacao;
 	}
 
-	public void setAtivacao(String ativacao) {
-		this.estadoAtivacao = ativacao;
+	public void inativarConta() {
+		this.estadoAtivacao = "inativada";
+	}
+	
+	public void ativarConta() {
+		this.estadoAtivacao = "ativa";
+	}
+	
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
 
-	public long getNumero() {
-		return numero;
+	public String getNumero() {
+		return this.PREFIXO + " " + this.numero;
 	}
 
 	public double getSaldo() {
@@ -38,6 +57,7 @@ public abstract class Conta {
 	protected boolean depositar(double valor) {
 		 if(estadoAtivacao.equalsIgnoreCase("ativa")) {
 			 this.saldo += valor;
+			 movimentacoes.add("Deposito efetuado no valor:  " + valor + ".  Saldo Atual:  " + this.saldo);
 			 return true;
 		 }
 		 else {
@@ -48,6 +68,7 @@ public abstract class Conta {
 	public boolean sacar(double valor) {
 		 if(saldo >= valor && estadoAtivacao.equalsIgnoreCase("ativa")) {
 			 this.saldo -= valor;
+			 movimentacoes.add("Saque efetuado no valor:  " + valor + ".  Saldo Atual:  " + this.saldo);
 			 return true;
 		 }
 		 else {
@@ -55,16 +76,26 @@ public abstract class Conta {
 		 }
 	}
 	
-	/*public String toString() {
-		String dados = "Nome Empresarial:  " + this.nome + "\nNome Fantasia: " + this.nomeFantasia + 
-						"\nEndereco Titular: " + this.endereco + "\nEmail do Titular: " + this.email + 
-						"\nCNPJ do Titular: " + this.cnpj +
-						"Saldo Atual: " + conta.getSaldo();
-		return dados;
-	}*/
+	public String getMovimentacoes() {
+		if(estadoAtivacao.equalsIgnoreCase("ativa")) {
+			String dados = "";
+			for(String s : this.movimentacoes) {
+				dados += s + "\n";
+			}
+			return dados;
+		} else {
+			return "Esta conta esta inativa";
+		}
+	}
+	
 
 	
 }
+
+
+
+
+
 
 
 

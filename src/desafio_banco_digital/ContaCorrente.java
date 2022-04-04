@@ -9,10 +9,10 @@ public class ContaCorrente extends Conta {
 	}
 
 
-	public ContaCorrente(Agencia agencia, Pessoa cliente) {
-		super(agencia, cliente);
+	public ContaCorrente(Agencia agencia, Pessoa pessoa) {
+		super(agencia, pessoa);
 		this.estadoAtivacao = "ativa";
-		this.PREFIXO = 001;
+		this.PREFIXO = (long) 001;
 	}
 	
 	
@@ -20,10 +20,27 @@ public class ContaCorrente extends Conta {
 		if(this.estadoAtivacao.equalsIgnoreCase("ativa") && this.saldo >= 0) {
 			this.sacar(valor);
 			destino.depositar(valor);
-			return true;
+			movimentacoes.add("Transferencia realizda no valor:  " + valor + ".  Saldo Atual:  " + this.saldo +
+								"Conta destino:  " + destino.getNumero() + " - Titular: " + destino.getPessoa().getNome());
+			 return true;
 		} else {
 			return false;
 		}
 	}
+	
+	
+	
+	
+	
+	
+	/*
+	 	public String getDadosTitular() {
+		String dados = null;
+		dados += "Nome " + pessoa.getNome() + "\nEndereco Titular: " + pessoa.getEndereco() + "\nEmail do Titular: " + pessoa.getEmail() + 
+						"\nCNPJ do Titular: " + this.cnpj +
+						"Saldo Atual: " + conta.getSaldo();
+		return dados;
+	}
+	 */
 	
 }

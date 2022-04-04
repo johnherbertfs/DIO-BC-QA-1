@@ -23,7 +23,7 @@ public class PeFisica extends Pessoa {
 		this.cpf = cpf;
 	}
 
-	public String toString() {
+	public String getDadosPessoa() {
 		String dados = "Nome Titular:  " + this.nome + "\nEndereco Titular: " + this.endereco +
 						"\nEmail do Titular: " + this.email + "\nCPF do Titular: " + this.cpf +
 						"Saldo Atual: " + conta.getSaldo();

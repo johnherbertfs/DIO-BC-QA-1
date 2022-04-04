@@ -8,7 +8,7 @@ public class PeJuridica extends Pessoa {
 	private Conta conta;
 	
 
-	public PeJuridica(String nome, String endereco, String email, String nomeFantasia, String cnpj) {
+	public PeJuridica(String nome, String nomeFantasia, String endereco, String email, String cnpj) {
 		super(nome, endereco, email);
 		this.nomeFantasia = nomeFantasia;
 		this.cnpj = cnpj;

@@ -10,7 +10,7 @@ public class ContaPoupanca extends Conta {
 		super(agencia, cliente);
 		this.taxaJuros = 0.52;
 		this.estadoAtivacao = "ativa";
-		this.PREFIXO = 002;
+		this.PREFIXO = (long) 002;
 	}
 
 	
